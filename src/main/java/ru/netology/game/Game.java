@@ -3,25 +3,26 @@ package ru.netology.game;
 import ru.netology.domain.Player;
 import ru.netology.notRegisteredException.NotRegisteredException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Game {
-    private List<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
-    public boolean register(Player player) {
-        return players.add(player);
+    public void register(String name, Player player) {
+        players.put(name, player);
     }
 
     public int round(String playerName1, String playerName2) {
-        Player player1 = null;
-        Player player2 = null;
-        for (Player player : players) {
-            if (player.getName().equals(playerName1)) {
-                player1 = player;
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
+        for (Map.Entry<String, Player> player : players.entrySet()) {
+
+            if (player.getValue().equals(playerName1)) {
+                player1 = player.getValue();
             }
-            if (player.getName().equals(playerName2)) {
-                player2 = player;
+            if (player.getValue().equals(playerName2)) {
+                player2 = player.getValue();
             }
         }
 

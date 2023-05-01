@@ -20,44 +20,44 @@ public class TournamentmvnTest {
 
     @Test
     public void shouldIfPlayer1Wins() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         assertEquals(1, game.round("Cobra", "Hero"));
     }
 
     @Test
     public void shouldIfPlayer2Wins() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         assertEquals(2, game.round("Loser", "Hero"));
     }
 
     @Test
     public void shouldIfDraw() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         assertEquals(0, game.round("Cobra", "Cat"));
     }
 
     @Test
     public void shouldIfPlayer1NotRegistered() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Oleg", "Cobra");
@@ -66,11 +66,11 @@ public class TournamentmvnTest {
 
     @Test
     public void shouldIfPlayer2NotRegistered() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Tiger", "Masha");
@@ -79,11 +79,11 @@ public class TournamentmvnTest {
 
     @Test
     public void shouldIfPlayersNotRegistered() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
+        game.register("Cobra", player1);
+        game.register("Tiger", player2);
+        game.register("Loser", player3);
+        game.register("Hero", player4);
+        game.register("Cat", player5);
 
         Assertions.assertThrows(NotRegisteredException.class, () -> {
             game.round("Vasya", "Alex");
